@@ -10,14 +10,12 @@ class LinkedList {
     this.head = null;
   }
 
-  // Agregar al inicio (head)
   addFirst(value) {
     const newNode = new LinkedListNode(value);
     newNode.next = this.head;
     this.head = newNode;
   }
 
-  // Agregar al final
   addLast(value) {
     const newNode = new LinkedListNode(value);
     if (!this.head) {
@@ -40,10 +38,9 @@ class LinkedList {
       count++;
     }
 
-    return current ? current.value : null; // Retorna el valor o null si no existe
+    return current ? current.value : null;
   }
 
-  // Agregar en una posición específica
   addAt(value, position) {
     if (position < 0) {
       console.log("La posición debe ser un número positivo.");
@@ -76,7 +73,6 @@ class LinkedList {
     newNode.next = current;
   }
 
-  // Buscar un nodo en una posición específica
   lookUp(position) {
     let current = this.head;
     let count = 0;
@@ -86,10 +82,9 @@ class LinkedList {
       count++;
     }
 
-    return current ? current.value : null; // Retorna el valor o null si no existe
+    return current ? current.value : null;
   }
 
-  // Imprimir la lista enlazada
   print() {
     let current = this.head;
     let result = "";
@@ -97,20 +92,19 @@ class LinkedList {
       result += current.value + " -> ";
       current = current.next;
     }
-    console.log(result + "null");
+    console.log(result + "/");
   }
 }
 
-// Uso de la lista enlazada
 const linkedList = new LinkedList();
 linkedList.addLast(20);
 linkedList.addLast(30);
 linkedList.addLast(40);
 
-linkedList.addFirst(10); // Inserta 10 al inicio
-linkedList.addAt(25, 2); // Inserta 25 en la posición 2
+linkedList.addFirst(10);
+linkedList.addAt(25, 2);
 
-linkedList.print(); // Imprime: 10 -> 20 -> 25 -> 30 -> 40 -> null
+linkedList.print();
 
-console.log("Elemento en posición 2:", linkedList.lookUp(2)); // Retorna 25
-console.log("Elemento en posición 5:", linkedList.lookUp(5)); // Retorna null (fuera de rango)
+console.log("Elemento en posición 2:", linkedList.lookUp(2));
+console.log("Elemento en posición 5:", linkedList.lookUp(5)); // out of the range
